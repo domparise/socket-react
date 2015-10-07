@@ -19,7 +19,6 @@ var container = React.render(React.createElement(Home, JSON.parse(document.getEl
     var app = this; // for interactive debugging, and for attaching socket.io handlers to application
     console.log(app)
 });
-
 },{"./components/home.jsx":1}],3:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.

@@ -1,1 +1,2 @@
-https://github.com/magalhas/express-react-engine# simple-react-templates
+# simple-react-templates
+uses (express-react-engine)[https://github.com/magalhas/express-react-engine]
