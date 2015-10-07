@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-react-engine": "^0.4.4",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-browserify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-stylus": "latest",
+    "grunt-nodemon": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-react": "latest"
+  }
+}
