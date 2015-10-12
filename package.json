@@ -1,16 +1,36 @@
 {
+  "name": "simple-react-templates",
+  "version": "0.0.0",
+  "description": "Using React as a view engine for express and binding dynamically rendered jsx to client-side React",
+  "main": "index.js",
   "dependencies": {
+    "grunt": "^0.4.5",
     "express": "^4.13.3",
+    "grunt-contrib-stylus": "^0.22.0",
     "express-react-engine": "^0.4.4",
-    "react": "^0.13.3"
+    "grunt-browserify": "^4.0.1",
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
+    "react": "^0.13.3",
+    "grunt-react": "^0.12.3"
   },
-  "devDependencies": {
-    "grunt": "latest",
-    "grunt-browserify": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-contrib-stylus": "latest",
-    "grunt-nodemon": "latest",
-    "grunt-concurrent": "latest",
-    "grunt-react": "latest"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dparise/simple-react-templates.git"
+  },
+  "keywords": [
+    "React",
+    "nodejsx"
+  ],
+  "author": "Dom Parise",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dparise/simple-react-templates/issues"
+  },
+  "homepage": "https://github.com/dparise/simple-react-templates"
 }
