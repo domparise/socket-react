@@ -7,11 +7,12 @@ module.exports = function (grunt) {
         JS: '<%= CLIENT %>/public/js',
         browserify: {
             options: {
-                transform:  [ require('grunt-react').browserify ]
+                transform:  [ require('grunt-react').browserify ],
+                compress: true
             },
             client: {
                 files: {
-                    '<%= JS %>/index.js': ['<%= CLIENT %>/index.js']
+                    '<%= JS %>/index.min.js': ['<%= CLIENT %>/index.js']
                 }
             }
         },
@@ -36,7 +37,7 @@ module.exports = function (grunt) {
                 tasks: ['stylus:client']
             },
             browserify: {
-                files: ['client/*.js'],
+                files: ['client/*.js','client/components/*.jsx'],
                 tasks: ['browserify:client']
             }
         },
