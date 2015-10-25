@@ -3,8 +3,8 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         
         CLIENT: 'client',
-        CSS: '<%= CLIENT %>/public/css',
-        JS: '<%= CLIENT %>/public/js',
+        CSS: '<%= CLIENT %>/static/css',
+        JS: '<%= CLIENT %>/static/js',
         browserify: {
             options: {
                 transform:  [ require('grunt-react').browserify ],
