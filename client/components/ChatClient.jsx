@@ -2,22 +2,41 @@ var React = require('react');
 var ChatClient = React.createClass({
     getInitialState: function () {
         return {
-            msgs: []
+            msgs: [],
+            isConnected: false
         }
     },
     componentDidMount: function () {
         var component = this;
-        this.props.socket.on('msg', function (data) {
-            console.log(data);
+        var socket = this.props.socket;
+        socket.on('open', function () {
+            console.log('connected')
             component.setState({
-                msgs: component.state.msgs.concat(data)
+                isConnected: true
+            });
+            socket.on('message', function (data) {
+                console.log(data);
+                component.setState({
+                    msgs: component.state.msgs.concat(data)
+                });
+            });
+            socket.on('close', function () { 
+                console.log('disconnected')
+                component.setState({
+                    isConnected: false
+                });
             });
         });
     },
     sendMsg: function (evt) {
         var component = this;
         var data = {txt:document.getElementById('main_input').value};
-        this.props.socket.emit('msg', data);
+
+        if (this.state.isConnected) {
+            var socket = this.props.socket;
+            socket.send(data.txt);
+        }
+
         component.setState({
             msgs: component.state.msgs.concat(data)
         });

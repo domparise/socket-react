@@ -11,18 +11,18 @@ app.get('/', function (req, res) {
 });
 
 var httpServer = require('http').createServer(app)
-var io = require('socket.io')(httpServer);
+var io = require('engine.io')(httpServer);
 
 io.on('connection', function (socket) {
     console.log(socket.id,'connected')
     
-    socket.on('msg', function (data) {
+    socket.on('message', function (data) {
         console.log(data)
+        // socket.broadcast.emit('msg',data)
     })
 
     socket.on('disconnect', function () {
         console.log(socket.id,'disconnected')
-        // clearInterval(socket.interval)
     })
 
 });

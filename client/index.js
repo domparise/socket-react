@@ -1,6 +1,6 @@
 var ChatClient = require('./components/ChatClient.jsx')
 
-var socket = io('http://localhost:5000/')
+var socket = require('engine.io-client')('ws://localhost:5000');
 
 var data = JSON.parse(document.getElementById('initialProps').innerHTML);
 data.socket = socket;
