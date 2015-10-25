@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             },
             client: {
                 files: {
-                    '<%= CSS %>/index.min.css': ['<%= CLIENT %>/index.styl']
+                    '<%= CSS %>/index.min.css': ['<%= CLIENT %>/style/index.styl']
                 }
             }
         },
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         },
         watch: {
             stylus: {
-                files: ['client/*.styl'],
+                files: ['client/style/*.styl'],
                 tasks: ['stylus:client']
             },
             browserify: {

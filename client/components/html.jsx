@@ -10,7 +10,8 @@ var Html = React.createClass({
                 <body>
                     <div id='container' dangerouslySetInnerHTML={{__html: this.props.body}} />
                     <script id='initialProps' type='application/json' dangerouslySetInnerHTML={{__html: JSON.stringify(this.props.props)}} />
-                    <script src='/js/react-with-addons.js' />
+                    <script src='/js/react-with-addons.min.js' />
+                    <script src='/js/socket.io.js' />
                     <script src='/js/index.min.js' />
                 </body>
             </html>

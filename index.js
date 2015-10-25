@@ -7,11 +7,24 @@ app.engine('jsx', require('express-react-engine')({wrapper: 'html.jsx'}));
 app.use(express.static(__dirname+'/client/public'))
 
 app.get('/', function (req, res) {
-    return res.render('home.jsx', { foo: 'bar' });
+    return res.render('ChatClient.jsx', {});
 });
 
-app.get('/:num', function (req, res) {
-    return res.render('CounterSet.jsx', { num: req.params.num });
+var httpServer = require('http').createServer(app)
+var io = require('socket.io')(httpServer);
+
+io.on('connection', function (socket) {
+    console.log(socket.id,'connected')
+    
+    socket.on('msg', function (data) {
+        console.log(data)
+    })
+
+    socket.on('disconnect', function () {
+        console.log(socket.id,'disconnected')
+        // clearInterval(socket.interval)
+    })
+
 });
 
-app.listen(5000)
+httpServer.listen(5000)
