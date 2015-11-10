@@ -1,17 +1,14 @@
-var express = require('express');
-var app = express();
+var express = require('express')
+var app = express()
 
-app.set('views', __dirname + '/client/components');
-app.engine('jsx', require('express-react-engine')({wrapper: 'html.jsx'}));
-
-app.use(express.static(__dirname+'/client/static'))
+app.use(express.static(__dirname+'/public'))
 
 app.get('/', function (req, res) {
-    return res.render('ChatClient.jsx', {});
-});
+    res.sendFile(__dirname+'/public/index.html')
+})
 
 var httpServer = require('http').createServer(app)
-var io = require('socket.io')(httpServer);
+var io = require('socket.io')(httpServer)
 
 io.on('connection', function (socket) {
     console.log(socket.id,'connected')
@@ -25,6 +22,6 @@ io.on('connection', function (socket) {
         console.log(socket.id,'disconnected')
     })
 
-});
+})
 
 httpServer.listen(5000)

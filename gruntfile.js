@@ -2,9 +2,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         
-        CLIENT: 'client',
-        CSS: '<%= CLIENT %>/static/css',
-        JS: '<%= CLIENT %>/static/js',
         browserify: {
             options: {
                 transform:  [ require('grunt-react').browserify ],
@@ -12,17 +9,7 @@ module.exports = function (grunt) {
             },
             client: {
                 files: {
-                    '<%= JS %>/index.min.js': ['<%= CLIENT %>/index.js']
-                }
-            }
-        },
-        stylus: {
-            options: {
-                compress: true
-            },
-            client: {
-                files: {
-                    '<%= CSS %>/index.min.css': ['<%= CLIENT %>/style/index.styl']
+                    'public/js/index.min.js': ['client/index.js']
                 }
             }
         },
@@ -32,12 +19,8 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            stylus: {
-                files: ['client/style/*.styl'],
-                tasks: ['stylus:client']
-            },
             browserify: {
-                files: ['client/*.js','client/components/*.jsx'],
+                files: ['client/*.js','client/*.jsx'],
                 tasks: ['browserify:client']
             }
         },
@@ -51,10 +34,9 @@ module.exports = function (grunt) {
     
     grunt.loadNpmTasks('grunt-browserify')
     grunt.loadNpmTasks('grunt-contrib-watch')
-    grunt.loadNpmTasks('grunt-contrib-stylus')
     grunt.loadNpmTasks('grunt-nodemon')
     grunt.loadNpmTasks('grunt-concurrent')
     grunt.loadNpmTasks('grunt-react')
-    grunt.registerTask('compile', ['stylus:client','browserify:client'])
+    grunt.registerTask('compile', ['browserify:client'])
     grunt.registerTask('default', ['compile','concurrent'])
 }
